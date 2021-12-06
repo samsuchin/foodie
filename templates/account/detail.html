@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">@{{account.username}}</h1>
+        <h4 class="text-center">Dishes</h4>
+        {% if account.dishes %}
+        {% for dish in account.dishes.all %}
+        <div class="col-6 col-lg-4">
+            {% include 'includes/dish_card.html' %}
+        </div>
+        {% endfor %}
+        {% else %}
+        <h1 class="text-center">No dishes</h1>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/like.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/dishes.css' %}">
+{% endblock %}
+
+<div class="card shadow m-3">
+    <div class="position-relative">
+    <div class="dish-rating">{{dish.get_rating_display}}</div>
+    <img src="{{dish.media.url}}" class="card-img-top" alt="...">
+</div>
+    <div class="card-body">
+        <div class="d-flex align-items-center">
+            <h4 class="card-title mb-0 mt-1 me-auto">{{dish.name}}</h4>
+            {% if dish.price %}
+            <h6 class="card-title mb-0 text-muted">${{dish.price}}</h6>
+            {% endif %}
+            
+        </div>
+      <a class="resturant-card-link" href="{% url 'resturant_detail' dish.resturant.pk %}">{{dish.resturant.name}}</a>
+      <div class="dish-review">{{dish.review|linebreaks}}</div>
+      <div dish_pk="{{dish.pk}}" endpoint="{% url 'change_save_dish' %}" class="btn btn-primary w-100 mb-2 like_dish {% if dish.pk in user_saves %}liked{% endif %}">{% if request.user.pk in user_saves %}Saved{% else %}Save{% endif %}</div>
+      <div class="text-center">
+        By <a class="link" href="{% url 'account_detail' dish.user.username %}">@{{dish.user.username}}</a>
+      </div>
+    </div>
+  </div>

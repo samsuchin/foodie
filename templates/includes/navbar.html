@@ -1,0 +1,29 @@
+{% load static %}
+<div class="shadow mb-4" id="navbar">
+<div class="text-center mt-2">
+  <a class="navbar-brand" href="{% url 'home' %}">
+    <img src="{% static 'images/logo.png' %}" alt="" width="200">
+  </a>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav mx-auto">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          <a class="nav-link" href="{% url 'explore' %}">Explore</a>
+          <a class="nav-link" href="{% url 'post' %}">Post</a>
+          {% if request.user.is_authenticated %}
+          <a class="nav-link" href="{% url 'account_detail' request.user.username %}">Account</a>
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          {% else %}
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+          <a class="nav-link" href="{% url 'signup' %}">Signup</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

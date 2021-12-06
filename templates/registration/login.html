@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div id="page-backing" class="">
+
+  <div class="container py-5">
+  <div class="card py-5">
+
+    <div class="card-body">
+      <h2 class="card-title text-center fw-bold">Login</h2>
+      <form class="needs-validation" method="post">{% csrf_token %}
+        {% include 'includes/form.html' %}
+        <div class="text-center">
+          <button class="btn btn-primary mt-3 w-50" type="submit">Login</button>
+        </div>
+
+    </form>
+    </div>
+    <div class="card-footer">
+        
+    </div>
+
+
+  </div>
+</div>
+        </div>
+{% endblock %}

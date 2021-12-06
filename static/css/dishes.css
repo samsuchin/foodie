@@ -1,0 +1,49 @@
+.resturant-card-link {
+    text-decoration: none;
+    color: #FF3008;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.resturant-card-link:hover {
+    color: black;
+}
+
+.dish-rating {
+    position: absolute;
+    bottom: -30px;
+    text-align: center;
+    left: 0;
+    width: 100%;
+    font-size: 40px;
+
+}
+
+.card {
+    border-radius: 20px;
+    border: none;
+}
+
+.card-img,
+.card-img-top {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.link:hover {
+    color: #FF3008;
+}
+
+
+
+.dish-review{
+    overflow-y: scroll;
+    max-height: 200px;
+}

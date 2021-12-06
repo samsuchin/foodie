@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/nice_select.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1 class="text-center title">Post New Dish</h1>
+        <form class="mb-3" enctype="multipart/form-data" accept="image/png, image/jpeg" action="" method="POST">{% csrf_token %}
+            <div class="col-12">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Image or Video</label>
+                    <input required class="form-control mb-3" type="file" accept="image/png,image/jpeg" name="media"
+                    id="image_input">
+                </div>
+                <div class="mb-3">
+                    <select required name="resturant_pk" class="form-select">
+                        <option selected>Select Resturant</option>
+                        {% for resturant in resturants %}
+                        <option value="{{resturant.pk}}">{{resturant.name}}</option>
+                        {% endfor %}
+                      </select>
+                </div>
+                <div class="mb-3">
+                    <label for="dishName" class="form-label">Dish Name</label>
+                    <input required type="text" name="name" class="form-control" id="dishName">
+                    <div class="form-text">Enter how it appears on the menu</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="Review" class="form-label">Review</label>
+                    <textarea name="review" class="form-control" id="Review" rows="3"></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="rating" class="form-label">Rating</label>
+                    <input required name="rating" type="range" class="form-range" min="1" max="5" id="rating">
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">$</span>
+                    <input type="number" class="form-control" placeholder="Price">
+                  </div>
+                  <button class="btn btn-primary w-100">Post</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

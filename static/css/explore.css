@@ -1,0 +1,13 @@
+.card{
+    border-radius: 20px;
+    border-color: transparent;
+}
+.dish-rating {
+    position: absolute;
+    bottom: -10px;
+    text-align: center;
+    left: 0;
+    width: 100% !important;
+    font-size: 15px;
+
+}

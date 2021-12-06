@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="page-backing" class="">
+    <div class="container py-5">
+        <div class="card py-5">
+            <div class="card-body">
+                <h3 class="card-title text-center">Signup</h3>
+                <form class="needs-validation" enctype="multipart/form-data" method="post">{% csrf_token %}
+                    {% include 'includes/form.html' %}
+                    <div class="text-center">
+                        <button class="btn btn-primary mt-3 w-50" type="submit">Signup</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="list-group text-center">
+                    <p class="help-text">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+body {}
+
+.form-control {
+    border-radius: 15px;
+}
+
+.btn {
+    border-radius: 15px;
+}
+
+.btn-primary {
+    background-color: #FF3008;
+    color: white;
+    border-color: #FF3008;
+}
+
+.btn-primary:hover {
+    background-color: #d22604;
+    border-color: #d22604;
+}
+
+.title {
+    color: #FF3008;
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Comfortaa', cursive;
+
+}
+
+.btn-outline-primary {
+    color: #fff;
+    background-color: #FF3008;
+    border-color: #FF3008;
+}
+
+.btn-outline-primary:hover {
+    background-color: #d22604;
+    border-color: #d22604;
+}
+
+.liked{
+    background-color: transparent !important;
+    border-color: #d22604 !important;
+    color: black !important;
+}
