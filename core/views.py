@@ -11,7 +11,8 @@ def home(request):
     # Pass the data to the template
     context = {
         "dishes": dishes,
-        "user_saves": Save.objects.filter(saved_by=request.user).values_list("dish_id", flat=True)
     }
+    if request.user.is_authenticated:
+        context["user_saves"] = Save.objects.filter(saved_by=request.user).values_list("dish_id", flat=True)
 
     return render(request, "index.html", context)

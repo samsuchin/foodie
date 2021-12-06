@@ -40,10 +40,16 @@
 .link:hover {
     color: #FF3008;
 }
-
+.card-body{
+    z-index: 1000;
+}
 
 
 .dish-review{
     overflow-y: scroll;
     max-height: 200px;
+}
+
+.carousel-control-next, .carousel-control-prev{
+    bottom: 50%;
 }
