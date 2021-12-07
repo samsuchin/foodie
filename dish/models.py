@@ -4,6 +4,7 @@ from resturant.models import Resturant
 from . import DISH
 from django.conf import settings
 
+
 class Dish(models.Model):
 
     name = models.CharField(max_length=255)

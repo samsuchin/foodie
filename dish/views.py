@@ -58,3 +58,11 @@ def change_save_dish(request):
             new_like.delete()
         print(liked)
         return JsonResponse(liked, safe=False)
+
+def delete(request, dish_pk):
+    # Get dish
+    dish = get_object_or_404(Dish, pk=dish_pk)
+    # Make sure uer who is deleting owns the dish
+    if request.user == dish.user:
+        dish.delete()
+        return redirect(reverse("account_detail", kwargs={"username": request.user.username}))

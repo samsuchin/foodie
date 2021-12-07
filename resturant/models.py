@@ -5,11 +5,10 @@ class Resturant(models.Model):
 
     name = models.CharField(max_length=255)
     cuisine = models.CharField(max_length=255)
-    longitude = models.CharField(max_length=255)
-    latitude = models.CharField(max_length=255)
-    
     city = models.CharField(max_length=255)
+    address = models.CharField(max_length=255, null=True, blank=True)
     is_active = models.BooleanField(default=True)
+
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self) -> str:

@@ -18,7 +18,10 @@
         </div>
       <a class="resturant-card-link" href="{% url 'resturant_detail' dish.resturant.pk %}">{{dish.resturant.name}}</a>
       <div class="dish-review">{{dish.review|linebreaks}}</div>
-      <div dish_pk="{{dish.pk}}" endpoint="{% url 'change_save_dish' %}" class="btn btn-primary w-100 mb-2 like_dish {% if dish.pk in user_saves %}liked{% endif %}">{% if request.user.pk in user_saves %}Saved{% else %}Save{% endif %}</div>
+      <div dish_pk="{{dish.pk}}" endpoint="{% url 'change_save_dish' %}" class="btn btn-primary w-100 mb-2 like_dish {% if dish.pk in user_saves %}liked{% endif %}">{% if dish.pk in user_saves %}Saved{% else %}Save{% endif %}</div>
+      {% if request.user == dish.user %}
+      <a class="btn btn-warning w-100 mb-2" href="{% url 'delete_dish' dish.pk %}">Delete</a>
+      {% endif %}
       <div class="text-center">
         By <a class="link" href="{% url 'account_detail' dish.user.username %}">@{{dish.user.username}}</a>
       </div>
