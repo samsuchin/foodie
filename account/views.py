@@ -12,10 +12,10 @@ def account_detail(request, username):
     account = get_object_or_404(get_user_model(), username=username)
     context = {
         "account": account,
-        "saved_performances": Dish.objects.filter(saves__saved_by=request.user).order_by("-pk")
+        "saved_performances": Dish.objects.filter(saves__saved_by=request.user).order_by("-created_at")
     }
     # If the user owns the account display that specific template
-    if account==request.user:
+    if account == request.user:
         context["user_saves"] = Save.objects.filter(saved_by=request.user).values_list("dish_id", flat=True)
         return render(request, "account/personal.html", context)
     # Else do detail template
