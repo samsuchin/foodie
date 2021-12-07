@@ -5,9 +5,10 @@ Download the repository manually or through git
 `git clone https://github.com/samsuchin/foodie.git`
 
 Move into the repository folder
+
 `cd foodie`
 
-Make sure python3 is installed on your computer.
+Make sure python3 is installed on your computer. This can be installed [Here]](https://www.python.org/downloads/).
 
 It is advised to create a virtual environment and then install the requirements.txt libraries
 
