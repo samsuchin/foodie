@@ -22,7 +22,9 @@ def account_detail(request, username):
     else:
         return render(request, "account/detail.html", context)
 
+
 def signup(request):
+    # If a user posts then grab the data through django forms, see if valid. If is, login and redirect
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -31,5 +33,6 @@ def signup(request):
 
             return redirect("home")
     else:
+        # Provide django forms signup
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})

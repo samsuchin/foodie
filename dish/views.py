@@ -12,7 +12,7 @@ import json
 @login_required
 def post(request):
     # If post is done, get all the form data
-    if request.method=="POST":
+    if request.method == "POST":
         name = request.POST.get("name")
         resturant_pk = request.POST.get("resturant_pk")
         media = request.FILES.get("media")
@@ -43,20 +43,23 @@ def post(request):
     return render(request, "post.html", context)
 
 def change_save_dish(request):
-
-    if request.method=="POST":
+    # Make sure a post is made (this will be async calls)
+    if request.method == "POST":
+        # Grab the fetch post data in request.body
         data = json.loads(request.body)
+        # Get the dish pk that is being liked
         dish_pk = data.get("dish_pk")
+        # Create or get a new like under that dish and by the request user
         new_like, created = Save.objects.get_or_create(
                 saved_by=request.user,
                 dish_id=dish_pk
             )
+        # Check if like was created and based on this pass info to frontend to update automatically
         if created:
             liked = True
         else:
             liked = False
             new_like.delete()
-        print(liked)
         return JsonResponse(liked, safe=False)
 
 def delete(request, dish_pk):
