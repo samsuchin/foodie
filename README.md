@@ -7,6 +7,8 @@ Download the repository manually or through git
 Move into the repository folder
 `cd foodie`
 
+Make sure python3 is installed on your computer.
+
 It is advised to create a virtual environment and then install the requirements.txt libraries
 
 `pip install -r requirements.txt`
