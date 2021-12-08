@@ -1,23 +1,15 @@
 from pathlib import Path
 import os
-import environ
 
-def get_list(text):
-    return [item.strip() for item in text.split(",")]
-
-env = environ.Env(
-    DEBUG=(bool, False)
-)
-environ.Env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = "django-insecure-@)*#f%-z8+$*ji2yw^y=o)8!&#!qvyqix7)-007u^j4i2w&x-5"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG")
+DEBUG = True
 
-ALLOWED_HOSTS = get_list(env("ALLOWED_HOSTS"))
+ALLOWED_HOSTS = "*"
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -32,7 +24,6 @@ INSTALLED_APPS = [
     'dish',
     'explore',
     'widget_tweaks',
-    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -102,18 +93,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-else:
-    EMAIL_HOST = "mail.privateemail.com"
-    EMAIL_HOST_USER = ""
-    EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
-    EMAIL_PORT = 587
-    EMAIL_USE_TLS = True
-    DEFAULT_FROM_EMAIL = ""
-
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -141,24 +120,3 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "account.User"
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'WARNING',
-            'class': 'logging.FileHandler',
-            'filename': 'debug.log',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'WARNING',
-            'propagate': True,
-        },
-    },
-}

@@ -17,7 +17,7 @@ Dishes are the core of the website. They store the most information. Each dish h
 By creating a save table we can record what user saved a dish and what dish through two foriegn keys. We also store when this was created by ordering by purposes.
 
 ## Settings
-All settings are configured under the foodie/settings.py file. Coupled with the environ library we are able to pass environment variables to our project securely. 
+All settings are configured under the foodie/settings.py file. We configured a custom User model and a static, media, and templates folder.
 
 ## Static
 We seperated the static by css, images, and js. Doing so allows us to keep a clean design where we can import specific items only when necessary on different pages.
