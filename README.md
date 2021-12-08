@@ -16,8 +16,6 @@ It is advised to create a virtual environment and then install the requirements.
 
 Once everything is installed, run the following commands.
 
-`python manage.py makemigrations`
-`python manage.py migrate`
 `python manage.py runserver`
 
 The website is now live. An account can be created under signup.
