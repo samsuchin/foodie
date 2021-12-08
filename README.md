@@ -1,4 +1,7 @@
 # Foodie
+
+[OUR VIDEO](https://www.youtube.com/watch?v=JjaYeO0H4Sk)
+
 ## Install and Configure
 Download the repository manually or through git
 
