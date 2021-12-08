@@ -5,7 +5,6 @@ for(let i = 0; i < dishes.length; i++){
         console.log("DSADA SDA SDASD")
         var dish_pk = this.getAttribute("dish_pk");
         var endpoint = this.getAttribute("endpoint");
-        console.log(logged_in)
         fetch(endpoint, {
             method: 'POST',
             headers: {

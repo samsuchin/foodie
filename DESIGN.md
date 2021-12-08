@@ -25,6 +25,5 @@ We seperated the static by css, images, and js. Doing so allows us to keep a cle
 ## Templates
 We have a base.html file that serves as the layout for other files. Every other html templates extends this through Django's jinja template language. We were also able to include other html blocks for a clean design, such as navbar, footer, and messages. We have an includes folder to reuse html elements like a dish card for rendering the dishes out uniformly.
 
-## Account
-Each user has a username, password, date joined, and a few permission booleans. We designed the various views and urls for the user.
-
+## Save
+The save is an important more complex feature. It uses vanilla JS fetch calls to make a POST to the backend and return a JsonResponse to the frontend asyncronously. Based off if a like was created or not we render out different looks for the save button by updating its class and innerHTML. 

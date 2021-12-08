@@ -16,8 +16,7 @@ class Dish(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     price = models.DecimalField(max_digits=50, decimal_places=2, null=True, blank=True)
-    saved_by = models.ManyToManyField(get_user_model(), related_name="dishes_saved")
-
+    
     def __str__(self) -> str:
         return self.name
 
